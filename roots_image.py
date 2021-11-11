@@ -20,10 +20,10 @@ class RootsImage:
                     self.indices[i].insert(0, 0)
 
         for i in range(len(self.indices)):
-            print('EIGEN')
+            print('EIGEN', end='\r')
             self.eigens = eigs.Eigs(self.linear_combos.linear_coms, self.linear_combos.num_of_linear_coms,
-                                    self.indices[i+15], len(self.indices))
-            print('PLOT')
+                                    self.indices[i+15], len(self.indices), i)
+            print('PLOT', end='\r')
             self.image = plot.Plot(self.eigens.eig_xy_color, i)
 
         

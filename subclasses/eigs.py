@@ -1,20 +1,19 @@
 from utils import utils
 from numpy import linalg as la
-from itertools import groupby
 import math
-import random
 
 util = utils.Util()
 
 
 class Eigs:
-    def __init__(self, matrices, num_of_matrices, fixed_vector, num_of_frames) -> None:
+    def __init__(self, matrices, num_of_matrices, fixed_vector, num_of_frames, frame) -> None:
         self.eigs = []
         self.eig_xy_color = []
         self.matrices = matrices
         self.num_of_matrices = num_of_matrices
         self.fixed_vector = fixed_vector
         self.num_of_frames = num_of_frames
+        self.frame = frame
 
         self.get_eigs()
 
@@ -29,7 +28,6 @@ class Eigs:
             associate an RGB color. Thus, eig_xy_color contains a list whose elements are themselves lists
             containing an xy-pair and an RGB triple.
         """
-        exp = math.sqrt(2*len(self.fixed_vector)) % (2 * math.pi)
         for matrix in self.matrices:
             w, v = la.eig(matrix)
             temp_vector = [f(v) for v in w for f in (self.get_real, self.get_imag)]
