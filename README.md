@@ -1,4 +1,4 @@
- &nbsp;&nbsp;&nbsp;&nbsp;![eigen](/Plots/sl3(C).gif)
+![eigen](/Plots/sl3(C).gif)
    
 # Eigenvalues of the Adjoint Representation
 
