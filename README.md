@@ -1,5 +1,7 @@
-![eigen](/Plots/sl3(C).gif)
-
+<p align="center"
+   ![eigen](/Plots/sl3(C).gif)
+</p>
+   
 # Eigenvalues of the Adjoint Representation
 
 This program attempts to provide a unique visualization of the root space of a semi-simple Lie algebra. Namely, the Special linear Lie algebra. This Lie algebra is the set of all nxn matrices over the complex numbers, with trace 0. The images produced are composed of pixels whose coordinates are derived from Eigenvalues, and whose color is derived from the angle the cooresponding Eigenvector has with a fixed vector. For a more formal explanation of the math behind this program see [DETAILS](/DETAILS.pdf).
