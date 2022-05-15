@@ -1,4 +1,4 @@
-![eigen](/Plots/sl_3.png)
+![eigen](/Plots/plot25.png)
 
 # Eigenvalues of the Adjoint Representation
 
