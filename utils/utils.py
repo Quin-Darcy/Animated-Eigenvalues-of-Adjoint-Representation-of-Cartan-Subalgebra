@@ -151,3 +151,34 @@ class Util:
 
         return tuple(arr)
 
+    @staticmethod
+    def display_stats(n, coeffs, frame_size=0, num_of_frames=0) -> None:
+        stats = dict()
+        if frame_size > 0:
+            stats['num_of_frames'] = num_of_frames
+            stats['frame_size'] = str(frame_size)+' x '+str(frame_size)
+            file_size_bits = num_of_frames*math.pow(frame_size, 2)*24
+        else:
+            stats['num_eig_vals'] = (math.pow(n, 2)-1)*math.pow(coeffs, n-1)
+            stats['num_of_frames'] = int(math.pow(coeffs, n-1)*math.pow(2, 2*math.pow(n,
+                2)-2))
+            dim = int(math.sqrt(stats['num_eig_vals']/1.0))
+            stats['frame_size'] = str(dim)+' x '+str(dim)
+            file_size_bits = math.pow(dim, 2) * 24
+
+        if file_size_bits / math.pow(10, 9) >= 1:
+            stats['file_size'] = str(math.ceil(file_size_bits/math.pow(10, 9)))+' GB'
+        elif file_size_bits / math.pow(10, 6) >= 1:
+            stats['file_size'] = str(math.ceil(file_size_bits/math.pow(10, 6)))+' MB'
+        else:
+            stats['file_size'] = str(math.ceil(file_size_bits/math.pow(10, 3)))+' kB'
+
+        print('-'*32)
+        print("{:<20} {:<0} {:<9}".format("Number of Frames",':', stats['num_of_frames'])) 
+        print("{:<20} {:<0} {:<9}".format("Frame Size",':', stats['frame_size']))
+        print("{:<20} {:<0} {:<9}".format("Folder Size",':', stats['file_size']))
+
+    @staticmethod
+    def calculate_coeffs(n, fs) -> int:
+        a = (2*math.log(fs)-math.log(math.pow(n, 2)-1))/(n-1)
+        return math.ceil(math.exp(a))

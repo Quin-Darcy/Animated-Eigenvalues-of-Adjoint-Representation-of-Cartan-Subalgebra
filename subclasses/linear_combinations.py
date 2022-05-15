@@ -24,16 +24,13 @@ class LinearCombinations:
         """"
             Uncomment the coefficient generator needed.
         """
-        print('     get_coeffs')
         self.coeffs = util.get_unit_circle_coeffs(self.num_of_coeffs)
         #self.coeffs = util.get_random_coeffs(self.num_of_coeffs)
 
     def get_indices(self) -> None:
-        print('     get_indices')
         self.indices = util.get_indices(self.num_of_matrices, self.num_of_coeffs)
 
     def set_linear_coms(self) -> None:
-        print('     get_linear_coms')
         self.num_of_linear_coms = len(self.indices)
         zeros = [0 for i in range(self.matrix_dim)]
         zeros = [zeros.copy() for i in range(self.matrix_dim)]
