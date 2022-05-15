@@ -1,5 +1,5 @@
 <p align="center"
-   ![eigen](/Plots/sl3(C).gif)
+    <img width="460" height="460" src="/Plots/sl3(C).gif">
 </p>
    
 # Eigenvalues of the Adjoint Representation
